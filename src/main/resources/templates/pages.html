@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>深圳五千年</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- css -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="../static/css/index_css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../static/css/font-awesome.css" type="text/css" media="all" />
+    <!--// css -->
+    <!-- font -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- //font -->
+    <script src="../static/js/jquery-1.11.1.min.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <!-- load src -->
+    <script src="../static/js/index_js/index.js"></script>
+    <!-- //load src -->
+</head>
+<body>
+<div class="ui-tab">
+    <!-- 具体消息内容 -->
+</div>
+<div class="paging">
+    <!-- 分页布局-->
+    <table>
+        <tr class="page-font">
+            <td><img src="../static/images/first.png" width="40" height="40" class="firstPage" onclick="page_click(this)" alt=""/></td>
+            <td><img src="../static/images/before.png" width="40" height="40" class="beforePage" onclick="page_click(this)" alt=""/></td>
+            <td>&nbsp;&nbsp;|&nbsp;第<input type="button" class="currentPage" value="1" readonly="readonly">页</td>
+            <td>&nbsp;&nbsp;&nbsp;共<input type="button" class="totalPage" value="1" readonly="readonly">页&nbsp;|&nbsp;&nbsp;</td>
+            <td><img src="../static/images/after.png" width="40" height="40" class="nextPage" onclick="page_click(this)" alt=""/></td>
+            <td><img src="../static/images/last.png" width="40" height="40" class="lastPage" onclick="page_click(this)" alt=""/></td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">
+    const currentPage = 1;//当前页码
+    const pageSize = 10;
+    let totalCount;
+    let totalPage = Math.ceil(totalCount/pageSize); //一共多少页
+    const data = [];
+
+    function list() {
+        let id;
+        let name;
+        var ids =new Array();
+        for(var i = 1; i <= 20; i++) {
+            if()
+            data.push({"title": name}, {"id": id});
+        }
+        totalCount = data.length;
+    }
+
+    //前端获取后台数据并呈现方法
+    function information_display() {
+        $(".ui-tab").empty()
+        $.each(data, function (index, data) {
+            var infor_title = "<table  class=\"title\">"
+                + "<tr >"
+                + "<td>"
+                + "<a th:herf=@{polygon/" + data[index].id + "}>" + data[index].title + "<\a>"
+                + "</td>"
+                + "</tr>"
+                + "</table>";
+            $(".ui-tab").append(infor_title)
+        })
+    }
+    // //为测试分页功能代码，进行网络请求后便不需要
+    // function information_display2() {
+    //     const data = [
+    //         {"title": "第二页-今日日志反反复复付付付"}
+    //     ];
+    //     $(".ui-tab").empty()
+    //     $.each(data, function (index, n) {
+    //         const infor_title = "<table  class=\"title\">"
+    //             + "<tr >"
+    //             + "<td>" + data[index].title + "</td>"
+    //             + "</tr>"
+    //             + "</table>";
+    //         $(".ui-tab").append(infor_title)
+    //     })
+    // }
+    //初始化加载，分页首页数据，输入：每页多少条数据，当前页（默认为1）；输出：当前页数据和总页数
+    window.onload = function () {
+        $(".totalPage").attr("value", totalPage)
+        information_display()
+    }
+    //上一页、下一页，首页和尾页的单击触发事件
+    function page_click(item) {
+        console.log(item)
+        //首页
+        let pageNumber;
+        if ($(item).attr("class") === "firstPage") {
+            console.log("firstPage")
+            pageNumber = parseInt($(".currentPage").attr("value"));
+            $(".currentPage").attr("value", 1)
+        }
+        //上一页
+        else if ($(item).attr("class") === "beforePage") {
+            console.log("beforePage")
+            pageNumber = parseInt($(".currentPage").attr("value"));
+            if (pageNumber > 1) {
+                $(".currentPage").attr("value", pageNumber - 1)
+                information_display()
+            } else {
+                $(".beforePage").attr("disabled", false)
+            }
+        }
+        //下一页
+        else if ($(item).attr("class") === "nextPage") {
+            console.log("nextPage")
+            pageNumber = parseInt($(".currentPage").attr("value"));
+            if (pageNumber < totalPage) {
+                $(".currentPage").attr("value", pageNumber + 1)
+                information_display2()
+            } else {
+                $(".nextPage").attr("disabled", false)
+            }
+        }
+        //尾页
+        else {
+            console.log("lastPage")
+            pageNumber = parseInt($(".currentPage").attr("value"));
+            $(".currentPage").attr("value", totalPage)
+        }
+    }
+</script>
+</body>
+</html>

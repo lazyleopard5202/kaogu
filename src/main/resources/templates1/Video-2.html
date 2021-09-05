@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>深圳五千年</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- css -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="../static/css/index_css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../static/css/font-awesome.css" type="text/css" media="all" />
+    <!--// css -->
+    <!-- font -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- //font -->
+    <script src="../static/js/jquery-1.11.1.min.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <!-- load src -->
+    <script src="../static/js/index_js/index.js"></script>
+    <!-- //load src -->
+</head>
+<body>
+<div class="header-w3layoutstop">
+    <div class="container">
+        <div class="sustech-logo">
+            <img src="../static/images/sustech-logo-cn.png" alt="">
+        </div>
+        <div class="search-grid">
+            <form action="#" method="post">
+                <input type="text" placeholder="Subscribe" class="big-dog" name="Subscribe" required="">
+                <button class="btn1"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- navigation -->
+<div class="nav-links">
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:href="@{index}"><h1>深圳五千年-考古平台</h1></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav link-effect">
+                    <li class="active"><a th:href="@{index}">Home</a></li>
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span data-hover="Short Codes">Multiple media</span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu agile_short_dropdown">
+                            <li><a th:href="@{article}">Articles</a></li>
+                            <li><a th:href="@{model}">Models</a></li>
+                            <li><a th:href="@{video}">Video</a></li>
+                            <li><a th:href="@{image}">Image</a></li>
+                        </ul>
+                    </li>
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span data-hover="Short Codes">Staff</span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu agile_short_dropdown">
+                            <li><a href="http://cse.sustech.edu.cn/cn/people/view/people_id/112/sort_id/9/pid/">刘江老师</a></li>
+                            <li><a href="http://faculty.sustech.edu.cn/tangjg/">唐际根老师</a></li>
+                        </ul>
+                    </li>
+					<li><a th:href="@{reference}">Reference</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="introduction">
+    <div class="container">
+       <div class="video">
+            <p align="center">
+                <video width="640" height="480" controls="controls" autoplay="autoplay">
+                    <source src="../static/video/movie-2.ogg" type="video/ogg" />
+                    <source src="../static/video/movie-2.mp4" type="video/mp4" />
+                    <source src="../static/video/movie-2.webm" type="video/webm" />
+                </video>
+        </div>
+	<a th:href="@{video}" style="float:right;margin-left: 10px" class="link-text">> back</a>
+    </div>
+</div>
+    
+<div id="arrow">
+    <img src="../static/images/up-arrow.png" οnclick="move-top.js">
+</div>
+    
+<!-- //banner -->
+
+
+<!-- footer start here -->
+<div class="footer-agile jarallax">
+    <div class="container">
+        <div class="footer-btm-agileinfo">
+            <div class="col-md-3 col-xs-3 footer-grid w3social">
+                <h3>导航</h3>
+                <ul>
+                    <li><a th:href="@{index}">Home</a></li>
+                    <li><a th:href="@{article}">Articles</a></li>
+                    <li><a th:href="@{model}">Models</a></li>
+                    <li><a th:href="@{video}">Video</a></li>
+                    <li><a th:href="@{image}">Image</a></li>
+                    <li><a href="http://cse.sustech.edu.cn/cn/people/view/people_id/112/sort_id/9/pid/">Staff</a></li>
+                    <li><a th:href="@{reference}">Reference</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="copy-w3lsright">
+            <p>Copyright &copy; 2018.Company name All rights reserved.</p>
+        </div>
+        <div class="footer-top-agileinfo">
+            <div class="social-wthree-icons bnragile-icons">
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //footer end here -->
+
+<script src="../static/js/responsiveslides.min.js"></script>
+<!-- start-smooth-scrolling -->
+<script type="text/javascript" src="../static/js/move-top.js"></script>
+<script type="text/javascript" src="../static/js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!-- //start-smoth-scrolling -->
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+</body>
+
+</html>

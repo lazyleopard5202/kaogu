@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    username: Yesj
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.18.14.196:3306/kaogu
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: /
+      suffix: .html
+  thymeleaf:
+    cache: false
+    servlet:
+      content-type: text/html
+    mode: html
+    prefix: classpath:/templates/
+    suffix: .html
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
